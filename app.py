@@ -4,7 +4,7 @@ from datetime import date, time, datetime, timedelta
 
 st.set_page_config(
     page_title="DayFlow — планировщик",
-    page_icon="✅ ",
+    page_icon="✅",
     layout="wide"
 )
 
@@ -52,7 +52,7 @@ if "notes" not in st.session_state:
     st.session_state.notes = ""
 
 # ---------- Заголовок ----------
-st.title("✅  DayFlow")
+st.title("✅ DayFlow")
 st.caption("Умный планировщик дня: задачи, расписание и контроль прогресса")
 
 # ---------- Боковая панель ----------
@@ -170,16 +170,15 @@ st.progress(progress)
 
 # ---------- Вкладки ----------
 tab1, tab2, tab3, tab4 = st.tabs([
-    "📋  Мои задачи",
-    "➕  Добавить задачу",
-    "📊  Статистика",
-    "📝  Заметки"
+    "📋 Мои задачи",
+    "➕ Добавить задачу",
+    "📊 Статистика",
+    "📝 Заметки"
 ])
 
 # ---------- Задачи ----------
 with tab1:
-    st.subheader(f"План на
-{selected_date.strftime('%d.%m.%Y')}")
+    st.subheader(f"План на {selected_date.strftime('%d.%m.%Y')}")
 
     col1, col2 = st.columns([3, 1])
 
@@ -187,7 +186,7 @@ with tab1:
         st.write("Задачи можно сортировать по приоритету и автоматически распределять по времени.")
 
     with col2:
-        if st.button("⚡  Составить план"):
+        if st.button("⚡ Составить план"):
             auto_plan()
             st.success("План составлен!")
             st.rerun()
@@ -224,15 +223,15 @@ with tab1:
 
                     if task["planned_start"]:
                         planned = (
-                            f"🕒  {task['planned_start']}–"
+                            f"🕒 {task['planned_start']}–"
                             f"{task['planned_end']} · "
                         )
 
                     st.caption(
                         f"{planned}"
-                        f"📁  {task['category']} · "
+                        f"📁 {task['category']} · "
                         f"⏱ {task['duration']} мин · "
-                        f"⭐  {task['priority']}"
+                        f"⭐ {task['priority']}"
                     )
 
                     if task["description"]:
@@ -314,7 +313,7 @@ with tab2:
 
 # ---------- Статистика ----------
 with tab3:
-st.subheader("Статистика продуктивности")
+    st.subheader("Статистика продуктивности")
 
     if all_tasks:
         data = []
@@ -351,7 +350,7 @@ st.subheader("Статистика продуктивности")
         csv = df.to_csv(index=False).encode("utf-8-sig")
 
         st.download_button(
-            "⬇️  Скачать задачи в CSV",
+            "⬇️ Скачать задачи в CSV",
             data=csv,
             file_name=f"plan_{selected_date}.csv",
             mime="text/csv"
