@@ -178,7 +178,7 @@ tab1, tab2, tab3, tab4 = st.tabs([
 
 # ---------- Задачи ----------
 with tab1:
-st.subheader(f"План на
+    st.subheader(f"План на
 {selected_date.strftime('%d.%m.%Y')}")
 
     col1, col2 = st.columns([3, 1])
